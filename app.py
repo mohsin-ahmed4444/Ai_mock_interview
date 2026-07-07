@@ -7,7 +7,7 @@ import os
 
 load_dotenv()
 
-API_KEY = os.getenv("api_key")
+API_KEY = os.getenv("API_KEY")
 
 client = genai.Client(api_key=API_KEY)
 
