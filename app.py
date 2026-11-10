@@ -154,26 +154,20 @@ Rules:
 """
 
     with st.spinner("🤖 AI is preparing your question..."):
-
-      
-try:
-    response = client.models.generate_content(
-        model="gemini-3.1-flash-lite",
-        contents=prompt
-    )
-
-except Exception:
-    st.error(
-        "⚠️ Gemini AI is temporarily experiencing high demand."
-    )
-    st.info(
-        "Please wait a few minutes and try again."
-    )
-    st.stop()
-
-
-    st.session_state.question = response.text.strip()
-
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.1-flash-lite",
+                contents=prompt
+            )
+        except Exception:
+            st.error(
+                "⚠️ Gemini AI is temporarily experiencing high demand."
+            )
+            st.info(
+                "Please wait a few minutes and try again."
+            )
+            st.stop()
+            st.session_state.question = response.text.strip()
 # Display Question
 
 progress = st.session_state.question_no / st.session_state.total_questions
