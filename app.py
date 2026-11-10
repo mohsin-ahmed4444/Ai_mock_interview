@@ -167,7 +167,8 @@ Rules:
                 "Please wait a few minutes and try again."
             )
             st.stop()
-            st.session_state.question = response.text.strip()
+            
+        st.session_state.question = response.text.strip()
 # Display Question
 
 progress = st.session_state.question_no / st.session_state.total_questions
